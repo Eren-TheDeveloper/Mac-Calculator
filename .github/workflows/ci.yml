@@ -31,7 +31,7 @@ jobs:
         run: npm run test:ui
       - name: Upload interface screenshot
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: calculator-screenshot
           path: artifacts/calculator.png
