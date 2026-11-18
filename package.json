@@ -1,0 +1,21 @@
+{
+  "name": "mac-calculator",
+  "version": "1.0.0",
+  "description": "A compact macOS-inspired desktop calculator with keyboard support.",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "check": "node --check index.js && node --check preload.js && node --check calculator.js && node --check renderer.js && node --check tests/calculator.test.js && node --check tests/ui.cjs",
+    "test": "node --test tests/calculator.test.js",
+    "test:ui": "electron tests/ui.cjs",
+    "start": "electron ."
+  },
+  "keywords": ["electron", "calculator", "desktop", "macos-inspired"],
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^44.11.4"
+  }
+}

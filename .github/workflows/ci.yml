@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Windows / Node.js 22
+    runs-on: windows-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Check JavaScript syntax
+        run: npm run check
+      - name: Test calculator logic
+        run: npm test
+      - name: Test Electron interface
+        run: npm run test:ui
+      - name: Upload interface screenshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: calculator-screenshot
+          path: artifacts/calculator.png
+          if-no-files-found: ignore
+          retention-days: 7

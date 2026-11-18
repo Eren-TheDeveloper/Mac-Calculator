@@ -1,0 +1,25 @@
+node_modules/
+artifacts/
+*.log
+
+# Build output and test coverage
+dist/
+out/
+coverage/
+
+# Local credentials and environment settings
+.env
+.env.*
+!.env.example
+.npmrc
+*.pem
+*.key
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo

@@ -1,0 +1,39 @@
+:root {
+  color-scheme: dark;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #49394d;
+  color: #fff;
+  font-synthesis: none;
+}
+* { box-sizing: border-box; }
+body { margin: 0; height: 100vh; overflow: hidden; user-select: none; }
+button { font: inherit; color: inherit; border: 0; -webkit-app-region: no-drag; }
+.calculator { height: 100vh; display: flex; flex-direction: column; }
+.titlebar { position: relative; height: 40px; flex-shrink: 0; display: flex; align-items: center; padding: 0 14px; -webkit-app-region: drag; }
+.window-controls { display: flex; gap: 8px; align-items: center; }
+.window-control { width: 12px; height: 12px; padding: 0; border-radius: 50%; font: 12px/12px Arial, sans-serif; color: transparent; }
+.close { background: #ff6059; }
+.minimize { background: #ffbd2e; }
+.inactive { background: #78677b; border: 1px solid #8a778c; }
+.window-controls:hover button { color: #503333; }
+.window-control:focus-visible { outline: 2px solid white; outline-offset: 3px; color: #503333; }
+.app-title { position: absolute; left: 50%; transform: translateX(-50%); font-size: 12px; color: #d6c8d9; pointer-events: none; }
+.screen { flex: 1; min-height: 100px; padding: 10px 22px 17px; display: flex; flex-direction: column; justify-content: end; text-align: right; }
+.expression { color: #cebdd1; font-size: 13px; min-height: 19px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.calc-display { display: block; width: 100%; font-size: 58px; line-height: 1.2; font-weight: 300; letter-spacing: -2px; font-variant-numeric: tabular-nums; white-space: nowrap; user-select: text; }
+.calc-display.compact { font-size: 35px; letter-spacing: -1px; }
+.calc-display.small { font-size: 28px; letter-spacing: -.8px; }
+.calc-display.tiny { font-size: 22px; letter-spacing: -.5px; }
+.keypad { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(5, 58px); gap: 1px; background: #49394d; padding-top: 1px; }
+.calc-button { min-width: 0; background: #7f6b83; font-size: 25px; font-weight: 400; cursor: pointer; transition: background-color 100ms, box-shadow 100ms; }
+.calc-button:hover { background: #917d95; }
+.calc-button:active, .calc-button.pressed { background: #aa95ae; box-shadow: inset 0 2px 5px #0002; }
+.calc-button:focus-visible { outline: 2px solid #fff; outline-offset: -5px; }
+.utility { background: #645169; font-size: 21px; }
+.utility:hover { background: #79627e; }
+.operator { background: #f49b38; font-size: 31px; }
+.operator:hover { background: #ffad4e; }
+.operator:active, .operator.pressed { background: #dc8223; }
+.operator.selected { background: #fff0df; color: #bd6717; }
+.zero { grid-column: span 2; text-align: left; padding-left: calc(25% - 7px); }
+@media (prefers-reduced-motion: reduce) { .calc-button { transition: none; } }
